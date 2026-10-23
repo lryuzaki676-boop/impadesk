@@ -17,6 +17,9 @@ cert.pfx
 *png
 *svg
 *jpg
+# Packer splash label: needed by libs/portable/src/ui.rs, so it must ship even
+# though the blanket image ignores above would otherwise drop it.
+!libs/portable/src/res/label.png
 sciter.dll
 **pdb
 src/bridge_generated.rs
