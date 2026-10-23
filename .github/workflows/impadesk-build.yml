@@ -106,7 +106,9 @@ jobs:
           cd .\libs\portable
           python .\generate.py -f "..\..\impadesk" -o . -e "..\..\impadesk\ImpaDesk.exe"
           cargo build --locked --release
-          Copy-Item .\target\release\rustdesk-portable-packer.exe "..\..\ImpaDesk-install.exe" -Force
+          # libs/portable is a workspace member, so cargo puts the binary in the
+          # workspace target dir, not the crate-local one.
+          Copy-Item .\..\..\target\release\rustdesk-portable-packer.exe "..\..\ImpaDesk-install.exe" -Force
           Get-Item "..\..\ImpaDesk-install.exe" | Format-List Name,Length
 
       - name: Upload ImpaDesk artifact
