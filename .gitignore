@@ -68,3 +68,6 @@ flutter/web/
 /dist2/
 /release/
 /_ssh.py
+
+# Final release folder
+/ImpaDesk-release/
